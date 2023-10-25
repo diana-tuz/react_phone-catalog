@@ -3,7 +3,8 @@
   grid-column: 1/25;
 }
 
-.slider-list {
+.slider-container {
+  display: block;
   width: 1040px;
   height: 400px;
 }
@@ -11,6 +12,9 @@
 .slider__img {
   width: 1040px;
   height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .slider {

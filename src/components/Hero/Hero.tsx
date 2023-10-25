@@ -22,23 +22,22 @@ export const Hero: React.FC = () => {
         <div className="slider-container">
           <Slider {...settings}>
             <div>
-              <img
-                src="./img/banner-accessories.png"
-                alt="Slide1"
+              <div
+                style={{
+                  backgroundImage: 'url("./img/banner-accessories.png")',
+                }}
                 className="slider__img"
               />
             </div>
             <div>
-              <img
-                src="./img/banner-phones.png"
-                alt="Slide2"
-                className="slider__img rrr"
+              <div
+                style={{ backgroundImage: 'url("./img/banner-phones.png")' }}
+                className="slider__img"
               />
             </div>
             <div>
-              <img
-                src="./img/banner-tablets.png"
-                alt="Slide3"
+              <div
+                style={{ backgroundImage: 'url("./img/banner-tablets.png")' }}
                 className="slider__img"
               />
             </div>
