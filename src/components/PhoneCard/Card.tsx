@@ -1,14 +1,25 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 
-import { Goods } from '../../types/Goods';
+import { Googs } from '../../types/Goods';
 import './card.scss';
 import { Heart } from '../../assets/icons/Heart';
-import { add, remove } from '../../redux/favouriteSlice';
-import { RootState } from '../../redux/store';
+import { useFavouritesContext } from '../../useContext/favouriteContext';
+import { CartItem, useCartContext } from '../../useContext/cartContext';
 
-export const PhoneCard: React.FC<Goods> = ({
+type Props = {
+  image: string,
+  name: string
+  fullPrice: number,
+  price: number,
+  screen: string,
+  capacity: string,
+  ram: string
+  id: string,
+  phone: Googs,
+};
+
+export const PhoneCard: React.FC<Props> = ({
   id,
   image,
   name,
@@ -17,26 +28,25 @@ export const PhoneCard: React.FC<Goods> = ({
   screen,
   capacity,
   ram,
+  phone,
 }) => {
-  const dispatch = useDispatch();
-  const addToFavourites = (e: string) => {
-    dispatch(add(e as string));
-  };
+  const { cart, addToCart, removeFromCart } = useCartContext();
+  const { favourites, setFavourites } = useFavouritesContext();
+  const isInCart = cart.some((item: CartItem) => item.product.id === id);
 
-  const handleRemoveFromFavourites = (productId: string) => {
-    dispatch(remove(productId as string));
-  };
+  const handleAddToCart = () => {
+    if (!isInCart && phone) {
+      addToCart(phone);
+    }
 
-  const favourite = useSelector(
-    (state: RootState) => state.favourite.favourite,
-  );
-  const toggleFavourite = (el: string) => {
-    if (favourite.includes(el)) {
-      handleRemoveFromFavourites(el);
-    } else {
-      addToFavourites(el);
+    if (isInCart && phone) {
+      removeFromCart(id);
     }
   };
+
+  const isFavourites = favourites
+    .some(item => item.id === id);
+  const isDiscont = fullPrice < 750;
 
   return (
     <div className="card">
@@ -46,14 +56,22 @@ export const PhoneCard: React.FC<Goods> = ({
         <p className="card__name body-text-14">
           {name}
         </p>
-        <div className="card__block-price">
-          <p className="card__price text-h2">
-            {`${price}$`}
-          </p>
-          <p className="card__discount">
-            { `${fullPrice}$`}
-          </p>
-        </div>
+        {isDiscont ? (
+          <div className="card__block-price">
+            <p className="card__price text-h2">
+              {`${price}$`}
+            </p>
+            <p className="card__discount">
+              { `${fullPrice}$`}
+            </p>
+          </div>
+        ) : (
+          <div className="card__block-price">
+            <p className="card__price text-h2">
+              {`${fullPrice}$`}
+            </p>
+          </div>
+        ) }
       </div>
       <div className="card__line" />
       <div className="card__info-part">
@@ -72,18 +90,29 @@ export const PhoneCard: React.FC<Goods> = ({
           </div>
         </div>
         <div className="card__buttons">
-          <button
-            type="button"
-            className="card__button-add"
-          >
-            Add to cart
-          </button>
+          {isInCart ? (
+            <button
+              type="button"
+              className="card__button-add"
+              onClick={handleAddToCart}
+            >
+              Add to cart
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="card__button-added"
+              onClick={handleAddToCart}
+            >
+              Added to cart
+            </button>
+          )}
           <button
             type="button"
             className={classNames('card__add-to', {
-              card__added: favourite.includes(id as string),
+              card__added: isFavourites,
             })}
-            onClick={() => toggleFavourite(id as string)}
+            onClick={() => setFavourites(phone)}
           >
             <Heart />
           </button>

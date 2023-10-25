@@ -1,12 +1,14 @@
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './redux/store';
 
 import { App } from './App';
+import { CartProvider } from './useContext/cartContext';
+import { FavouritesProvider } from './useContext/favouriteContext';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <CartProvider>
+    <FavouritesProvider>
+      <App />
+    </FavouritesProvider>
+  </CartProvider>,
   document.getElementById('root'),
 );

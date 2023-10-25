@@ -1,0 +1,12 @@
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  margin-bottom: 16px;
+
+  &:hover {
+    color: #159f75;
+  }
+}

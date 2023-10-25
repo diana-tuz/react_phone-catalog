@@ -107,4 +107,22 @@
       background: #159f75;
     }
   }
+
+  &__button-added {
+    background: #21e6aa;
+    width: 176px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    color: var(--gray-white, #fff);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    margin-right: 8px;
+
+    &:hover {
+      background: #0a4c38;
+    }
+  }
 }

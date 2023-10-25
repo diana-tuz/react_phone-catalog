@@ -1,15 +1,4 @@
 .catalog {
-  &__navigation {
-    display: flex;
-    align-items: center;
-    margin: 25px 0 40px;
-    gap: 10px;
-
-    &-link {
-      padding: 10px 0;
-    }
-  }
-
   &__title {
     margin-bottom: 8px;
   }
@@ -27,9 +16,10 @@
     margin-bottom: 24px;
   }
 
-  &__sortby,
+  &__sortBy,
   &__quantity {
     border-radius: 4px;
+    padding: 29px;
     height: 40px;
     color: #094a36;
     background: #fefbf1;
@@ -41,7 +31,7 @@
     padding: 12px;
   }
 
-  &__sortby {
+  &__sortBy {
     width: 176px;
   }
 

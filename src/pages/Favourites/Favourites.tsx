@@ -1,78 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { Googs } from '../../types/Goods';
-import { getProducts } from '../../api/api';
 import { PhoneCard } from '../../components/PhoneCard/Card';
-import { RootState } from '../../redux/store';
 import './Favourites.scss';
-import { add } from '../../redux/favouriteSlice';
+import { useFavouritesContext } from '../../useContext/favouriteContext';
+import { Crumbs } from '../../components/NavigationCrumbs/NavigationCrumbs';
+import { BackButton } from '../../components/BackButton/BackButton';
 
 export const Favourites: React.FC = () => {
-  const [list, setList] = useState<Googs[]>([]);
-  const [favoriteGoods, setFavoriteGoods] = useState<Googs[]>([]);
-  const [isError, setIsError] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const dispatch = useDispatch();
-  const data = async () => {
-    try {
-      setIsLoading(true);
-      const res = await getProducts();
+  const { favourites } = useFavouritesContext();
 
-      setList(res);
-      setIsLoading(false);
-    } catch {
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
 
-  const favourite = useSelector(
-    (state: RootState) => state.favourite.favourite,
-  );
-
-  useEffect(() => {
-    const storedFavourites = localStorage.getItem('favourites');
-
-    if (storedFavourites) {
-      const parsedFavourites = JSON.parse(storedFavourites);
-
-      dispatch(add(parsedFavourites));
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-    data();
-
-    const favoriteProducts = list.filter(
-      (product) => favourite.includes(product.id),
-    );
-
-    setFavoriteGoods(favoriteProducts);
-  }, [favourite, list]);
-
-  useEffect(() => {
-    localStorage.setItem('favourites', JSON.stringify(favourite));
-  }, [favourite]);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError) {
-    return <p>Error...</p>;
-  }
+  // if (isError) {
+  //   return <p>Error...</p>;
+  // }
 
   return (
     <section className="favourites mb">
+      <Crumbs title="Favourites" link="/favourites" />
+      <BackButton />
       <h2 className="text-h1">
         Favourites
       </h2>
-      <p className="favourites__amount ">
-        {`${favourite.length} items`}
+      <p className="favourites__amount small-text-12">
+        {`${favourites.length} items`}
       </p>
-      <div className="favourites__list small-text-12">
-        {favoriteGoods.map((phone: Googs) => {
+      <div className="favourites__list ">
+        {favourites.map((phone: Googs) => {
           const {
             image,
             name,
@@ -95,11 +51,11 @@ export const Favourites: React.FC = () => {
               ram={ram}
               id={id}
               key={id}
+              phone={phone}
             />
           );
         })}
       </div>
-
     </section>
   );
 };

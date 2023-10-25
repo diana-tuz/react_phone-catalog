@@ -4,22 +4,17 @@ import { IoIosArrowForward } from '@react-icons/all-files/io/IoIosArrowForward';
 import { IoIosArrowBack } from '@react-icons/all-files/io/IoIosArrowBack';
 import { PhoneCard } from '../PhoneCard/Card';
 import { Googs } from '../../types/Goods';
-import { PhoneCardFull } from '../PhoneCard/PhoneCardFull';
 
 type Props = {
   list: Googs[],
   isError: boolean,
-  isLoading: boolean,
   title: string,
-  cardType: 'PhoneCard' | 'PhoneCardFull';
 };
 
 export const HomeCatalog: React.FC<Props> = ({
   list,
-  isLoading,
   isError,
   title,
-  cardType,
 }) => {
   const [currentList, setCurrentList] = useState<Googs[]>([]);
   const [start, setStart] = useState<number>(0);
@@ -54,10 +49,6 @@ export const HomeCatalog: React.FC<Props> = ({
     setStart(newStart);
     setEnd(newEnd);
   };
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   if (isError) {
     return <p>Error...</p>;
@@ -98,34 +89,20 @@ export const HomeCatalog: React.FC<Props> = ({
               id,
             } = phone;
 
-            const cardComponent = cardType === 'PhoneCard' ? (
-              <PhoneCard
-                image={image}
-                name={name}
-                price={price}
-                fullPrice={fullPrice}
-                screen={screen}
-                capacity={capacity}
-                ram={ram}
-                id={id}
-                key={id}
-              />
-            ) : (
-              <PhoneCardFull
-                image={image}
-                name={name}
-                fullPrice={fullPrice}
-                screen={screen}
-                capacity={capacity}
-                ram={ram}
-                id={id}
-                key={id}
-              />
-            );
-
             return (
               <li className="homeCatalog__item" key={id}>
-                {cardComponent}
+                <PhoneCard
+                  image={image}
+                  name={name}
+                  price={price}
+                  fullPrice={fullPrice}
+                  screen={screen}
+                  capacity={capacity}
+                  ram={ram}
+                  id={id}
+                  key={id}
+                  phone={phone}
+                />
               </li>
             );
           })}

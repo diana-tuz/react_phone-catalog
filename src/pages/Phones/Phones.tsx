@@ -3,37 +3,51 @@ import React, { useEffect, useState } from "react";
 import { Catalog } from "../../components/Catalog/Catalog";
 import { getProducts } from "../../api/api";
 import { Googs } from "../../types/Goods";
+import { Crumbs } from "../../components/NavigationCrumbs/NavigationCrumbs";
+import { Loader } from "../../components/Loader/Loader";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const Phones: React.FC = () => {
   const [list, setList] = useState<Googs[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
-  const [isloading, setisloading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const data = async () => {
     try {
-      setisloading(true);
+      setIsLoading(true);
       const res = await getProducts();
 
       setList(res);
-      setisloading(false);
+      setIsLoading(false);
     } catch {
       setIsError(true);
     } finally {
-      setisloading(false);
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     data();
   }, []);
-  // const sortedList = list.filter((item) => item.category === 'phones');
 
   return (
-    <Catalog
-      isError={isError}
-      isLoading={isloading}
-      listOfGoods={list}
-      title="Phones"
-      link="/phone"
-    />
+    <div className="page-goods">
+      {isLoading ? <Loader />
+        : (
+          <>
+            <Crumbs
+              title="Phones"
+              link="/phone"
+            />
+            <BackButton />
+
+            <Catalog
+              isError={isError}
+              listOfGoods={list}
+              title="Phones"
+            />
+          </>
+        )}
+    </div>
+
   );
 };

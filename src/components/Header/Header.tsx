@@ -26,12 +26,12 @@ export const Header: React.FC = () => {
         </NavLink>
       </nav>
       <div className="header__leftbar">
-        <Link to="/favourites" className="header__icons">
+        <NavLink to="/favourites" className="header__icons link">
           <Heart />
-        </Link>
-        <Link to="/cart" className="header__icons">
+        </NavLink>
+        <NavLink to="/cart" className="header__icons link">
           <ShBag />
-        </Link>
+        </NavLink>
       </div>
     </header>
   );

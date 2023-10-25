@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  margin: 25px 0 40px;
+  gap: 10px;
+
+  &__link {
+    padding: 10px 0;
+
+    @media screen and(min-width:1024px) {
+      &:hover {
+        color: #159f75;
+      }
+    }
+  }
+}

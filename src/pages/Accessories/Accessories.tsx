@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Catalog } from '../../components/Catalog/Catalog';
-import { getProducts } from '../../api/api';
+import { getProductsByCategory } from '../../api/api';
 import { Googs } from '../../types/Goods';
+import { Crumbs } from '../../components/NavigationCrumbs/NavigationCrumbs';
+import { Loader } from '../../components/Loader/Loader';
+import { BackButton } from '../../components/BackButton/BackButton';
 
 export const Accessories: React.FC = () => {
   const [list, setList] = useState<Googs[]>([]);
@@ -11,7 +14,7 @@ export const Accessories: React.FC = () => {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const res = await getProducts();
+      const res = await getProductsByCategory('accessories');
 
       setList(res);
     } catch (error) {
@@ -25,26 +28,36 @@ export const Accessories: React.FC = () => {
     fetchData();
   }, []);
 
-  const sortedList = list.filter((item) => item.category === 'accsessories');
-
   return (
-    sortedList.length
-      ? (
-        <Catalog
-          isError={isError}
-          isLoading={isLoading}
-          listOfGoods={sortedList}
-          title="Accsessories"
-          link="/accessories"
-        />
-      )
-      : (
-        <div className="text-error">
-          <h2 className="text-h1 ">
-            We are working and will soon add a new categorys to our shop
-          </h2>
-        </div>
+    <div className="page-goods">
 
-      )
+      {isLoading
+        ? <Loader />
+        : (
+          <>
+            <Crumbs
+              link="/tablets"
+              title="Accsessories"
+            />
+            <BackButton />
+
+            {list.length ? (
+              <Catalog
+                isError={isError}
+                listOfGoods={list}
+                title="Accsessories"
+
+              />
+            )
+              : (
+                <div className="text-error">
+                  <h2 className="text-h1 ">
+                    We are working and will soon add a new categorys to our shop
+                  </h2>
+                </div>
+              )}
+          </>
+        )}
+    </div>
   );
 };

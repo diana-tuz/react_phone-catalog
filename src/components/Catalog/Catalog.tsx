@@ -3,26 +3,20 @@ import React, { useEffect, useState } from "react";
 import './Catalog.scss';
 import { IoIosArrowForward } from "@react-icons/all-files/io/IoIosArrowForward";
 import { IoIosArrowBack } from "@react-icons/all-files/io/IoIosArrowBack";
-import { IoIosHome } from "@react-icons/all-files/io/IoIosHome";
 import classNames from "classnames";
-import { NavLink } from "react-router-dom";
 import { Googs } from "../../types/Goods";
-import { PhoneCardFull } from "../PhoneCard/PhoneCardFull";
+import { PhoneCard } from "../PhoneCard/Card";
 
 type Props = {
   title: string,
   listOfGoods: Googs[],
   isError: boolean,
-  isLoading: boolean,
-  link: string,
 };
 
 export const Catalog: React.FC<Props> = ({
   title,
   listOfGoods,
-  isLoading,
   isError,
-  link,
 }) => {
   type Category = 'Newest' | 'Alphabetically' | 'Cheapest' | 'Default';
   const [amount, setAmount] = useState<number>(4);
@@ -48,7 +42,7 @@ export const Catalog: React.FC<Props> = ({
     }
 
     if (sortBy === 'Newest') {
-      sortedList = sortedList.sort((item1, item2) => item1.year - item2.year);
+      sortedList = sortedList.sort((item1, item2) => item2.year - item1.year);
     } else if (sortBy === 'Cheapest') {
       sortedList = sortedList.sort(
         (item1, item2) => item1.fullPrice - item2.fullPrice,
@@ -123,28 +117,12 @@ export const Catalog: React.FC<Props> = ({
     setPagesQuantity(Math.ceil(listOfGoods.length / amount));
   }, [listOfGoods, amount, start, end]);
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
   if (isError) {
     return <p>Error...</p>;
   }
 
   return (
     <section className="catalog mb">
-      <div className="catalog__navigation">
-        <NavLink to="/" className="catalog__navigation-link">
-          <IoIosHome />
-        </NavLink>
-        <IoIosArrowForward />
-        <NavLink
-          to={link}
-          className="catalog__navigation-link"
-        >
-          {title}
-        </NavLink>
-      </div>
       <h2 className="catalog__title  text-h1">
         {title}
       </h2>
@@ -198,6 +176,7 @@ export const Catalog: React.FC<Props> = ({
           const {
             image,
             name,
+            price,
             fullPrice,
             screen,
             capacity,
@@ -206,15 +185,17 @@ export const Catalog: React.FC<Props> = ({
           } = phone;
 
           return (
-            <PhoneCardFull
+            <PhoneCard
               image={image}
               name={name}
+              price={price}
               fullPrice={fullPrice}
               screen={screen}
               capacity={capacity}
               ram={ram}
               id={id}
               key={id}
+              phone={phone}
             />
           );
         })}
