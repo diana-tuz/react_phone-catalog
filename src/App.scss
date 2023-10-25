@@ -109,7 +109,7 @@ button {
 
   &.active {
     color: var(--gray-primary, #313237);
-    border-bottom: 2px solid #E2E6E9;
+    border-bottom: 2px solid #e2e6e9;
   }
 
   @media (min-width: 1440) {
@@ -176,7 +176,7 @@ button {
   }
 }
 
-.page-goods{
+.page-goods {
   grid-column: 1/25;
   justify-content: center;
   align-items: center;
