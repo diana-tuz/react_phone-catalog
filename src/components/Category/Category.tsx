@@ -19,21 +19,21 @@ export const Category: React.FC<Props> = ({
     {
       id: 0,
       params: '/phones',
-      img: '_new/img/category-phones.png',
+      img: './img/category-phones.png',
       name: 'Mobile phones',
       amount: `${phones.length} models`,
     },
     {
       id: 1,
       params: '/tablets',
-      img: '_new/img/category-tablets.png',
+      img: './img/category-tablets.png',
       name: 'Tablets',
       amount: `${tablets.length} models`,
     },
     {
       id: 2,
       params: '/accessories',
-      img: '_new/img/category-accessories.png',
+      img: './img/category-accessories.png',
       name: 'Accessories',
       amount: `${acceessories.length} models`,
     },
@@ -54,10 +54,7 @@ export const Category: React.FC<Props> = ({
                 to={params}
                 className="category-card__link"
               >
-                <div
-                  className="category-card__img"
-                  style={{ backgroundImage: `url(${img})` }}
-                />
+                <img src={img} alt={name} className="category-card__img" />
               </NavLink>
               <div className="category-card__info">
                 <p className="category-card__title text-h3">
