@@ -1,1 +1,179 @@
 // not empty
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  margin: 0;
+  padding: 0;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container {
+  min-width: 280px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  grid-template-rows: 1fr auto;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1136px;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(24, 1fr);
+  }
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  color: inherit;
+}
+
+.bg-light {
+  background: var(--Additional-2, #f3eddb);
+  color: var(--gray-primary, #073c1b);
+  font-family: 'Mont', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.body-text-14 {
+  color: #89939A;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.text-h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.32px;
+}
+
+.text-h2 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.text-h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.small-text-12 {
+  color: #89939A;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.text-error {
+  grid-column: 1/25;
+  color: #094A36;
+  text-align: center;
+  margin: auto;
+  margin: 22% 0;
+}
+
+.link {
+  color: #89939A;
+  font-family: Mont;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 11px;
+  letter-spacing: 0.48px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &.active {
+    color: var(--gray-primary, #313237);
+  }
+}
+
+.mb {
+  margin-bottom: 30px;
+
+  @media (min-width: 1440px) {
+    margin-bottom: 80px;
+  }
+}
+
+.button {
+  &__prev {
+    margin-right: 8px;
+  }
+
+  &__next {
+    margin-left: 8px;
+  }
+
+  &__prev,
+  &__next {
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    border: 1px solid #094A36;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  &__prev:hover,
+  &__next:hover {
+
+    background: #159f75;
+  }
+
+  &__icons {
+    width: 16px;
+    height: 16px;
+    margin: auto;
+  }
+
+  &__tab {
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    border-radius: 8px;
+
+    &:hover {
+      opacity: 1;
+      background: #159f75;
+    }
+  }
+
+  &__tab--active {
+    opacity: 1;
+    border: 1px solid #094A36;
+  }
+}

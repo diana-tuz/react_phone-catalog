@@ -1,0 +1,118 @@
+.card {
+  border: 1px solid #094A36;
+  background: #FEFBF1;
+  padding: 24px;
+  width: 272px;
+  height: 507px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  border-radius: 8px;
+
+  &__img-part {
+    height: 308px;
+  }
+
+  &__info-part {
+    height: 133px;
+  }
+
+  &__img {
+    width: 208px;
+    height: 208px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 24px;
+  }
+
+  &__name {
+    margin: 8px 0;
+  }
+
+  &__block-price {
+    display: flex;
+    align-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__discount {
+    color: var(--gray-secondary, #89939A);
+    font-family: 'Mont', sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    text-decoration-line: line-through;
+  }
+
+  &__line {
+    background: #E2E6E9;
+    width: 224px;
+    height: 1px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  &__added {
+    background: rgb(238, 154, 244);
+  }
+
+  &__screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &_info {
+    color: var(--gray-primary, #313237);
+    text-align: right;
+    font-family: Mont;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+
+  &__buttons {
+    display: flex;
+    margin-top: 8px;
+  }
+
+  &__add-to {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gray-icons-placeholders, #B4BDC3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+
+    &:hover{
+      background: #159f75;
+    }
+  }
+
+  &__button-add {
+    background: #094A36;
+    width: 176px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    color: var(--gray-white, #FFF);
+    text-align: center;
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    margin-right: 8px;
+
+    &:hover {
+      background: #159f75;
+    }
+  }
+}

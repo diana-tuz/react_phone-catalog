@@ -1,0 +1,37 @@
+.category {
+  grid-column: 1;
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__block {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.category-card {
+  &__link {
+    display: block;
+    width: 368px;
+    height: 368px;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+
+
+  &__img {
+    width: 100%;
+  }
+
+  &__info {
+    margin-top: 24px;
+  }
+
+  &__title {}
+
+  &__text {}
+}

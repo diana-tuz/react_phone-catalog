@@ -1,0 +1,31 @@
+export type Goods = {
+  year?: number,
+  id?: string,
+  phoneId?: string,
+  itemId?: string,
+  category?: string,
+  image: string,
+  name: string,
+  price?: number,
+  fullPrice: number,
+  screen: string,
+  color?: string,
+  capacity: string,
+  ram: string,
+};
+
+export type Googs = {
+  year: number,
+  id: string,
+  phoneId: string,
+  itemId: string,
+  category: string,
+  image: string,
+  name: string,
+  price: number,
+  fullPrice: number,
+  screen: string,
+  color: string,
+  capacity: string,
+  ram: string,
+};
