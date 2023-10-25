@@ -23,21 +23,21 @@ export const Hero: React.FC = () => {
           <Slider {...settings}>
             <div>
               <img
-                src="_new/img/banner-accessories.png"
+                src="./img/banner-accessories.png"
                 alt="Slide1"
                 className="slider__img"
               />
             </div>
             <div>
               <img
-                src="_new/img/banner-phones.png"
+                src="./img/banner-phones.png"
                 alt="Slide2"
                 className="slider__img rrr"
               />
             </div>
             <div>
               <img
-                src="_new/img/banner-tablets.png"
+                src="./img/banner-tablets.png"
                 alt="Slide3"
                 className="slider__img"
               />
