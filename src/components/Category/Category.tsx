@@ -19,7 +19,7 @@ export const Category: React.FC<Props> = ({
     {
       id: 0,
       params: '/phones',
-      img: ' _new/img/category-phones.png',
+      img: '_new/img/category-phones.png',
       name: 'Mobile phones',
       amount: `${phones.length} models`,
     },
@@ -54,7 +54,10 @@ export const Category: React.FC<Props> = ({
                 to={params}
                 className="category-card__link"
               >
-                <img src={img} alt={name} className="category-card__img" />
+                <div
+                  className="category-card__img"
+                  style={{ backgroundImage: `url(${img})` }}
+                />
               </NavLink>
               <div className="category-card__info">
                 <p className="category-card__title text-h3">
