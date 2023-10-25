@@ -28,6 +28,7 @@ html {
 a {
   cursor: pointer;
   text-decoration: none;
+  color: inherit;
 }
 
 .container {
@@ -51,18 +52,10 @@ button {
   cursor: pointer;
 }
 
-a {
-  cursor: pointer;
-  color: inherit;
-}
-
 .bg-light {
-  background: var(--Additional-2, #f3eddb);
+  background: var(--additional-2, #f3eddb);
   color: var(--gray-primary, #073c1b);
-  font-family: 'Mont', sans-serif;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -70,7 +63,7 @@ a {
 }
 
 .body-text-14 {
-  color: #89939A;
+  color: #89939a;
   font-size: 14px;
   line-height: 21px;
 }
@@ -93,22 +86,20 @@ a {
 }
 
 .small-text-12 {
-  color: #89939A;
+  color: #89939a;
   font-size: 12px;
   font-weight: 600;
 }
 
 .text-error {
   grid-column: 1/25;
-  color: #094A36;
+  color: #094a36;
   text-align: center;
-  margin: auto;
   margin: 22% 0;
 }
 
 .link {
-  color: #89939A;
-  font-family: Mont;
+  color: #89939a;
   font-size: 12px;
   font-weight: 700;
   line-height: 11px;
@@ -143,7 +134,7 @@ a {
     width: 32px;
     height: 32px;
     align-items: center;
-    border: 1px solid #094A36;
+    border: 1px solid #094a36;
     cursor: pointer;
     border-radius: 8px;
   }
@@ -174,6 +165,6 @@ a {
 
   &__tab--active {
     opacity: 1;
-    border: 1px solid #094A36;
+    border: 1px solid #094a36;
   }
 }

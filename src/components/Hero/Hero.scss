@@ -1,5 +1,6 @@
 .hero {
   margin-top: 40px;
+  grid-column: 1/25;
 }
 
 .slider-list {
@@ -12,12 +13,6 @@
   height: 400px;
 }
 
-.rrr {}
-
 .slider {
   margin: 0 60px;
-}
-
-.hero {
-  grid-column: 1/25;
 }

@@ -1,5 +1,7 @@
 export const SortBy = () => {
-  return <h2>
-    SortBy
-  </h2>
-}
+  return (
+    <h2>
+      SortBy
+    </h2>
+  );
+};

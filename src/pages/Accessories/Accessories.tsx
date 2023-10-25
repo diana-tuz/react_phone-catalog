@@ -34,8 +34,8 @@ export const Accessories: React.FC = () => {
           isError={isError}
           isLoading={isLoading}
           listOfGoods={sortedList}
-          title="Tablets"
-          link="/tablets"
+          title="Accsessories"
+          link="/accessories"
         />
       )
       : (

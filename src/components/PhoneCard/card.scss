@@ -1,6 +1,6 @@
 .card {
-  border: 1px solid #094A36;
-  background: #FEFBF1;
+  border: 1px solid #094a36;
+  background: #fefbf1;
   padding: 24px;
   width: 272px;
   height: 507px;
@@ -38,17 +38,15 @@
   }
 
   &__discount {
-    color: var(--gray-secondary, #89939A);
-    font-family: 'Mont', sans-serif;
+    color: var(--gray-secondary, #89939a);
     font-size: 22px;
-    font-style: normal;
     font-weight: 500;
     line-height: 140%;
     text-decoration-line: line-through;
   }
 
   &__line {
-    background: #E2E6E9;
+    background: #e2e6e9;
     width: 224px;
     height: 1px;
     display: block;
@@ -69,13 +67,9 @@
   &_info {
     color: var(--gray-primary, #313237);
     text-align: right;
-    font-family: Mont;
     font-size: 12px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
   }
-
 
   &__buttons {
     display: flex;
@@ -85,28 +79,26 @@
   &__add-to {
     width: 40px;
     height: 40px;
-    border: 1px solid var(--gray-icons-placeholders, #B4BDC3);
+    border: 1px solid var(--gray-icons-placeholders, #b4bcc3);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
 
-    &:hover{
+    &:hover {
       background: #159f75;
     }
   }
 
   &__button-add {
-    background: #094A36;
+    background: #094a36;
     width: 176px;
     height: 40px;
     flex-shrink: 0;
     border-radius: 8px;
-    color: var(--gray-white, #FFF);
+    color: var(--gray-white, #fff);
     text-align: center;
-    font-family: Mont;
     font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: 21px;
     margin-right: 8px;
