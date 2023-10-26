@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { IoIosAdd } from '@react-icons/all-files/io/IoIosAdd';
 import { IoIosRemove } from '@react-icons/all-files/io/IoIosRemove';
-import { IoIosClose } from '@react-icons/all-files/io/IoIosClose';
+import { IoMdClose } from '@react-icons/all-files/io/IoMdClose';
 import { Action, useCartContext, CartItem } from '../../useContext/cartContext';
 import './ProductInCart.scss';
 
@@ -25,7 +25,7 @@ export const ProductInCart: React.FC<Props> = (
           data-cy="cartDeleteButton"
           onClick={() => removeFromCart(product.id)}
         >
-          <IoIosClose />
+          <IoMdClose />
         </button>
 
         <Link to={product.id} className="product-in-cart__link">
@@ -62,7 +62,6 @@ export const ProductInCart: React.FC<Props> = (
           >
             {quantity}
           </div>
-
           <button
             type="button"
             className={classNames(
@@ -72,11 +71,9 @@ export const ProductInCart: React.FC<Props> = (
             aria-label="inc button"
             onClick={() => changeQuantity(product.id, Action.inc)}
           >
-            {' '}
             <IoIosAdd />
           </button>
         </div>
-
         <div className="product-in-cart__price">
           {`$${product.price}`}
         </div>

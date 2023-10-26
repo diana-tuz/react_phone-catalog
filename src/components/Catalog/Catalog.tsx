@@ -123,7 +123,7 @@ export const Catalog: React.FC<Props> = ({
 
   return (
     <section className="catalog mb">
-      <h2 className="catalog__title  text-h1">
+      <h2 className="catalog__title text-h1">
         {title}
       </h2>
       <p className="catalog__info body-text-14">
@@ -201,38 +201,36 @@ export const Catalog: React.FC<Props> = ({
         })}
       </div>
       <div className="catalog__tabs">
-        <div className="button">
-          <button
-            type="button"
-            className="button__prev"
-            onClick={handleTabsPrev}
-            disabled={currentPage === 1}
-          >
-            <IoIosArrowBack />
-          </button>
-          {pagesArray.map((number: number) => {
-            return (
-              <button
-                type="button"
-                className={classNames(
-                  'button__tab',
-                  { 'button__tab--active': currentPage === number },
-                )}
-                onClick={() => handlePageClick(number)}
-              >
-                {number}
-              </button>
-            );
-          })}
-          <button
-            type="button"
-            className="button__next"
-            onClick={handleTabsNext}
-            disabled={currentPage === pagesQuantity}
-          >
-            <IoIosArrowForward />
-          </button>
-        </div>
+        <button
+          type="button"
+          className="button__prev"
+          onClick={handleTabsPrev}
+          disabled={currentPage === 1}
+        >
+          <IoIosArrowBack />
+        </button>
+        {pagesArray.map((number: number) => {
+          return (
+            <button
+              type="button"
+              className={classNames(
+                'catalog__tab', 'button__tab',
+                { 'button__tab--active': currentPage === number },
+              )}
+              onClick={() => handlePageClick(number)}
+            >
+              {number}
+            </button>
+          );
+        })}
+        <button
+          type="button"
+          className="button__next"
+          onClick={handleTabsNext}
+          disabled={currentPage === pagesQuantity}
+        >
+          <IoIosArrowForward />
+        </button>
       </div>
     </section>
   );

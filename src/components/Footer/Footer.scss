@@ -13,8 +13,15 @@
   }
 
   &__navigation {
+
     display: flex;
-    gap: 64px;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (min-width:768px) {
+      flex-direction: row;
+      gap: 64px;
+    }
   }
 
   &__btn {

@@ -90,7 +90,7 @@ export const PhoneCard: React.FC<Props> = ({
           </div>
         </div>
         <div className="card__buttons">
-          {isInCart ? (
+          {!isInCart ? (
             <button
               type="button"
               className="card__button-add"

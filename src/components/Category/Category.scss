@@ -7,23 +7,50 @@
 
   &__block {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     gap: 16px;
+
+    @media (min-width:768px) {
+      flex-direction: row;
+    }
   }
 }
 
 .category-card {
   &__link {
     display: block;
-    width: 368px;
-    height: 368px;
+    width: 250px;
+    height: 250px;
+
+    @media (min-width:768px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    @media (min-width:1440px) {
+      width: 368px;
+      height: 368px;
+    }
   }
 
   &__img {
-    width: 368px;
-    height: 368px;
+    width: 250px;
+    height: 250px;
 
-    &:hover {
-      transform: scale(1.03);
+    @media (min-width:768px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    @media (min-width:1440px) {
+      width: 368px;
+      height: 368px;
+
+      &:hover {
+        transform: scale(1.03);
+      }
     }
   }
 

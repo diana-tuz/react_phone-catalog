@@ -1,8 +1,11 @@
 .navigation {
   display: flex;
   align-items: center;
-  margin: 25px 0 40px;
   gap: 10px;
+
+  @media screen and(min-width:1024px) {
+    margin: 25px 0 40px;
+  }
 
   &__link {
     padding: 10px 0;

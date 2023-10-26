@@ -9,14 +9,6 @@ import { BackButton } from '../../components/BackButton/BackButton';
 export const Favourites: React.FC = () => {
   const { favourites } = useFavouritesContext();
 
-  // if (isLoading) {
-  //   return <p>Loading...</p>;
-  // }
-
-  // if (isError) {
-  //   return <p>Error...</p>;
-  // }
-
   return (
     <section className="favourites mb">
       <Crumbs title="Favourites" link="/favourites" />

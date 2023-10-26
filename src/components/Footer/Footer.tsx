@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { IoIosArrowUp } from '@react-icons/all-files/io/IoIosArrowUp';
-import { Logo } from '../../assets/icons/Logo';
 import './Footer.scss';
 
 export const Footer: React.FC = () => {
@@ -15,8 +14,8 @@ export const Footer: React.FC = () => {
   return (
     <footer className=" footer ">
       <div className="footer__container container">
-        <Link to="/" className="footer__logo">
-          <Logo />
+        <Link to="/" className="nav__logo">
+          connectopia
         </Link>
         <div className="footer__navigation">
           <NavLink

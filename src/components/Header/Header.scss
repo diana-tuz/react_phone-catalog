@@ -1,14 +1,25 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 64px;
   padding: 0 24px;
-  background: var(--Primary, #0a6549);
+  background: #0a6549;
   box-shadow: 0 1px 0 0 #e2e6e9;
+  position: relative;
 
   &__leftbar {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__content {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 30px;
   }
 
   &__icons {
@@ -18,15 +29,40 @@
     width: 64px;
     height: 64px;
   }
+
+  &__burger {
+    @media (min-width: 768px) {
+      display: none;
+      z-index: 20000000000000;
+    }
+  }
 }
 
 .nav {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   gap: 32px;
 
-  @media (min-width: 1440) {
+  @media (min-width: 768px) {
+    display: flex;
+  }
+
+  @media (min-width: 1440px) {
     gap: 64px;
+  }
+
+  &__logo {
+    text-align: center;
+    background-color: #ef9af5;
+    padding: 15px;
+    border-radius: 25px 50px;
+    color: #0a6549;
+    text-transform: uppercase;
+
+    &-l {
+      font-size: 8px;
+      text-transform: lowercase;
+    }
   }
 }

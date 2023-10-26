@@ -1,7 +1,15 @@
 .cart-page {
-  width: 1136px;
   padding-top: 40px;
   margin-bottom: 80px;
+  width: 300px;
+
+  @media (min-width: 768px) {
+    width: 600px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1160px;
+  }
 
   &__back-link {
     margin-bottom: 16px;
@@ -21,6 +29,12 @@
     color: #313237;
     font-size: 20px;
     font-weight: 600;
+    flex-direction: column-reverse;
+    transition: all 300ms;
+
+    @media (min-width: 1440px) {
+      flex-direction: row;
+    }
   }
 
   &__products {
@@ -31,10 +45,11 @@
 
   &__checkout {
     box-sizing: border-box;
-    width: 368px;
+    width: 100%;
     height: 206px;
     border: 1px solid #313237;
     padding: 24px;
+    transition: all 300ms;
   }
 
   &__total {

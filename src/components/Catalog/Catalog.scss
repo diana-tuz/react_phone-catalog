@@ -4,7 +4,11 @@
   }
 
   &__info {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+
+    @media (min-width: 1440px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__settings {
@@ -40,10 +44,19 @@
 
   &__goods {
     display: flex;
-    width: 1160px;
+
     flex-wrap: wrap;
     row-gap: 16px;
     margin-bottom: 40px;
+    width: 300px;
+
+    @media (min-width: 768px) {
+      width: 600px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 1160px;
+    }
   }
 
   &__card {
@@ -52,8 +65,29 @@
     }
   }
 
+  &__tab {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 16px;
+    }
+  }
+
   &__tabs {
-    text-align: center;
-    gap: 16px;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      gap: 0;
+    }
+
+    @media (min-width: 1440px) {
+      gap: 16px;
+    }
+
   }
 }

@@ -4,9 +4,14 @@
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 
-  &:hover {
-    color: #159f75;
+  @media (min-width: 768px) {
+    margin-bottom: 16px;
+
+    &:hover {
+      color: #159f75;
+    }
   }
+
 }
