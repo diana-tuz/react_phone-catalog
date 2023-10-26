@@ -18,20 +18,20 @@ export const HomeCatalog: React.FC<Props> = ({
 }) => {
   const [currentList, setCurrentList] = useState<Googs[]>([]);
   const [start, setStart] = useState<number>(0);
-  const [end, setEnd] = useState<number>(4);
   const [amount, setAmount] = useState<number>(4);
+  const [end, setEnd] = useState<number>(amount);
 
   useEffect(() => {
     setCurrentList(list.slice(start, end));
   }, [start, end, list]);
 
   const handleTabsNext = () => {
-    let newStart = start + 4;
-    let newEnd = end + 4;
+    let newStart = start + amount;
+    let newEnd = end + amount;
 
     if (newEnd > list.length) {
       newStart = 0;
-      newEnd = 4;
+      newEnd = amount;
     }
 
     setStart(newStart);
@@ -39,11 +39,11 @@ export const HomeCatalog: React.FC<Props> = ({
   };
 
   const handleTabsPrev = () => {
-    let newStart = start - 4;
-    let newEnd = end - 4;
+    let newStart = start - amount;
+    let newEnd = end - amount;
 
     if (newStart < 0) {
-      newStart = list.length - 4;
+      newStart = list.length - amount;
       newEnd = list.length;
     }
 
@@ -60,7 +60,7 @@ export const HomeCatalog: React.FC<Props> = ({
       } else if (screenWidth >= 768 && screenWidth < 1440) {
         setAmount(2);
       } else {
-        setAmount(4);
+        setAmount(amount);
       }
     };
 
