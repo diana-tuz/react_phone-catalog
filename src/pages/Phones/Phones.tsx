@@ -36,7 +36,7 @@ export const Phones: React.FC = () => {
           <>
             <Crumbs
               title="Phones"
-              link="/phone"
+              link="/phones"
             />
             <BackButton />
 

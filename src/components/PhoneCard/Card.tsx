@@ -1,17 +1,18 @@
 import React from 'react';
-import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import { Googs } from '../../types/Goods';
 import './card.scss';
-import { Heart } from '../../assets/icons/Heart';
-import { useFavouritesContext } from '../../useContext/favouriteContext';
-import { CartItem, useCartContext } from '../../useContext/cartContext';
+import { useGoodContext } from '../../useContext/cardContext';
+import { ButtonsAddTo } from '../BottonsAddTo/ButtonsAddTo';
+import { Price } from '../Price/Price';
 
 type Props = {
   image: string,
   name: string
   fullPrice: number,
   price: number,
+  phoneId: string,
   screen: string,
   capacity: string,
   ram: string
@@ -24,57 +25,32 @@ export const PhoneCard: React.FC<Props> = ({
   image,
   name,
   price,
+  phoneId,
   fullPrice,
   screen,
   capacity,
   ram,
   phone,
 }) => {
-  const { cart, addToCart, removeFromCart } = useCartContext();
-  const { favourites, setFavourites } = useFavouritesContext();
-  const isInCart = cart.some((item: CartItem) => item.product.id === id);
-
-  const handleAddToCart = () => {
-    if (!isInCart && phone) {
-      addToCart(phone);
-    }
-
-    if (isInCart && phone) {
-      removeFromCart(id);
-    }
-  };
-
-  const isFavourites = favourites
-    .some(item => item.id === id);
-  const isDiscont = fullPrice < 750;
+  const { addGood } = useGoodContext();
 
   return (
-    <div className="card">
-      <div className="card__img-part">
-        <div style={{ backgroundImage: `url(${image})` }} className="card__img" />
 
-        <p className="card__name body-text-14">
-          {name}
-        </p>
-        {isDiscont ? (
-          <div className="card__block-price">
-            <p className="card__price text-h2">
-              {`${price}$`}
-            </p>
-            <p className="card__discount">
-              { `${fullPrice}$`}
-            </p>
-          </div>
-        ) : (
-          <div className="card__block-price">
-            <p className="card__price text-h2">
-              {`${fullPrice}$`}
-            </p>
-          </div>
-        ) }
-      </div>
-      <div className="card__line" />
-      <div className="card__info-part">
+    <div className="card">
+      <Link
+        to={`phones/${phoneId}`}
+        onClick={() => addGood(phoneId)}
+      >
+        <div className="card__img-part">
+          <div style={{ backgroundImage: `url(${image})` }} className="card__img" />
+
+          <p className="card__name body-text-14">
+            {name}
+          </p>
+          <Price price={price} fullPrice={fullPrice} />
+        </div>
+        <div className="card__line" />
+
         <div className="card__charactirastic">
           <div className="card__screen">
             <p className="card__text small-text-12">Screen</p>
@@ -89,36 +65,11 @@ export const PhoneCard: React.FC<Props> = ({
             <p className="card__info">{ram }</p>
           </div>
         </div>
-        <div className="card__buttons">
-          {!isInCart ? (
-            <button
-              type="button"
-              className="card__button-add"
-              onClick={handleAddToCart}
-            >
-              Add to cart
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="card__button-added"
-              onClick={handleAddToCart}
-            >
-              Added to cart
-            </button>
-          )}
-          <button
-            type="button"
-            className={classNames('card__add-to', {
-              card__added: isFavourites,
-            })}
-            onClick={() => setFavourites(phone)}
-          >
-            <Heart />
-          </button>
-        </div>
-      </div>
+
+      </Link>
+      <ButtonsAddTo phone={phone} id={id} />
 
     </div>
+
   );
 };

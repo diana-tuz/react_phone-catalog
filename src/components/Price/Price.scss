@@ -1,0 +1,16 @@
+.price{
+  &__block {
+      display: flex;
+      align-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    &__discount {
+      color: var(--gray-secondary, #89939a);
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 140%;
+      text-decoration-line: line-through;
+    }
+}

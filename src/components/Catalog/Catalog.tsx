@@ -141,7 +141,6 @@ export const Catalog: React.FC<Props> = ({
                 <option
                   key={item}
                   value={item}
-
                 >
                   {item}
                 </option>
@@ -179,6 +178,7 @@ export const Catalog: React.FC<Props> = ({
             price,
             fullPrice,
             screen,
+            phoneId,
             capacity,
             ram,
             id,
@@ -189,6 +189,7 @@ export const Catalog: React.FC<Props> = ({
               image={image}
               name={name}
               price={price}
+              phoneId={phoneId}
               fullPrice={fullPrice}
               screen={screen}
               capacity={capacity}
@@ -212,6 +213,7 @@ export const Catalog: React.FC<Props> = ({
         {pagesArray.map((number: number) => {
           return (
             <button
+              key={number}
               type="button"
               className={classNames(
                 'catalog__tab', 'button__tab',

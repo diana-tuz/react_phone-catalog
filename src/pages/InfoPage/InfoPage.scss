@@ -1,0 +1,108 @@
+.info {
+
+  &__images {
+    display: flex;
+    gap: 75px;
+  }
+
+  &__prev {
+    display: flex;
+    gap: 27px;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  &__prev--btn {
+    cursor: pointer;
+  }
+
+  &__prev--img {
+    width: 30px;
+    height: 30px;
+
+    @media screen and (min-width: 1440px) {
+      width: 60px;
+      height: 80px;
+    }
+  }
+
+  &__prev--mainImg {
+    width: 200px;
+    height: auto;
+
+    @media screen and (min-width: 1440px) {
+      width: 442px;
+      height: auto;
+    }
+  }
+
+  &__right {}
+
+  &__buttons {
+    gap: 10px;
+    display: flex;
+  }
+
+  &__line {
+    background: #e2e6e9;
+    width: 320px;
+    height: 1px;
+    margin: 24px 0;
+  }
+
+  &__color {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff #e2e6e9;
+    box-shadow: 2px 2px 1px 1px #e2e6e9;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  &__color--active {
+    border: 3px solid #555151;
+  }
+
+  &__charactirastic {
+    margin: 24px 0;
+    gap: 12px;
+  }
+
+  &__screen {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cell {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+  }
+
+  &__text {}
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__description {}
+
+  &__about {
+    display: flex;
+  }
+
+  &__about--section {}
+
+  &__about--title {}
+
+  &__about--text {}
+
+  &__tech {}
+}

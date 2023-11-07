@@ -106,6 +106,7 @@ export const HomeCatalog: React.FC<Props> = ({
               price,
               fullPrice,
               screen,
+              phoneId,
               capacity,
               ram,
               id,
@@ -120,6 +121,7 @@ export const HomeCatalog: React.FC<Props> = ({
                   fullPrice={fullPrice}
                   screen={screen}
                   capacity={capacity}
+                  phoneId={phoneId}
                   ram={ram}
                   id={id}
                   key={id}

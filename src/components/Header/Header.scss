@@ -4,7 +4,7 @@
   justify-content: center;
   height: 64px;
   padding: 0 24px;
-  background: #0a6549;
+  background: #150d48;
   box-shadow: 0 1px 0 0 #e2e6e9;
   position: relative;
 
@@ -30,6 +30,10 @@
     justify-content: center;
     width: 64px;
     height: 64px;
+  }
+
+  &__icons svg {
+    fill: #fff;
   }
 
   &__burger {

@@ -26,6 +26,7 @@ export const Favourites: React.FC = () => {
             name,
             price,
             fullPrice,
+            phoneId,
             screen,
             capacity,
             ram,
@@ -39,6 +40,7 @@ export const Favourites: React.FC = () => {
               price={price}
               fullPrice={fullPrice}
               screen={screen}
+              phoneId={phoneId}
               capacity={capacity}
               ram={ram}
               id={id}
