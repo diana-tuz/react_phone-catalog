@@ -9,5 +9,7 @@ export const Wrapper = () => (
   </Container>
 );
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: '';
+`;
 // const H1 = styled.h1``;
